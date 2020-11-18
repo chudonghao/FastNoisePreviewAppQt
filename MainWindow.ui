@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>976</height>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,14 +30,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="scrollUpButton">
           <property name="text">
            <string>Up</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="scrollDownButton">
           <property name="text">
            <string>Down</string>
           </property>
@@ -56,7 +56,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QWidget" name="" native="true">
+       <widget class="QWidget" name="widget" native="true">
         <layout class="QGridLayout" name="gridLayout">
          <property name="verticalSpacing">
           <number>0</number>
@@ -72,7 +72,7 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QCheckBox" name="checkBox_3">
+          <widget class="QCheckBox" name="visualiseDomainWarpCheckBox">
            <property name="text">
             <string/>
            </property>
@@ -81,7 +81,7 @@
          <item row="4" column="0">
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Visualise Domain Wrap:</string>
+            <string>Visualise Domain Warp:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -106,7 +106,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QCheckBox" name="checkBox">
+          <widget class="QCheckBox" name="invertCheckBox">
            <property name="text">
             <string/>
            </property>
@@ -321,22 +321,48 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QSpinBox" name="spinBox_4"/>
+          <widget class="QSpinBox" name="fractalOctavesInput">
+           <property name="value">
+            <number>3</number>
+           </property>
+          </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QComboBox" name="fractalTypeInput"/>
+          <widget class="QComboBox" name="fractalTypeComboBox"/>
          </item>
          <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+          <widget class="QDoubleSpinBox" name="fractalLacunarityInput">
+           <property name="value">
+            <double>2.000000000000000</double>
+           </property>
+          </widget>
          </item>
          <item row="6" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+          <widget class="QDoubleSpinBox" name="fractalGainInput">
+           <property name="singleStep">
+            <double>0.050000000000000</double>
+           </property>
+           <property name="value">
+            <double>0.500000000000000</double>
+           </property>
+          </widget>
          </item>
          <item row="7" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+          <widget class="QDoubleSpinBox" name="fractalWeightedStrengthInput">
+           <property name="singleStep">
+            <double>0.050000000000000</double>
+           </property>
+          </widget>
          </item>
          <item row="8" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+          <widget class="QDoubleSpinBox" name="fractalPingPongStrengthInput">
+           <property name="singleStep">
+            <double>0.050000000000000</double>
+           </property>
+           <property name="value">
+            <double>2.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -354,7 +380,7 @@
           <number>0</number>
          </property>
          <item row="2" column="1">
-          <widget class="QComboBox" name="comboBox_4"/>
+          <widget class="QComboBox" name="cellularDistanceFunctionComboBox"/>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_24">
@@ -387,10 +413,17 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QComboBox" name="comboBox_5"/>
+          <widget class="QComboBox" name="cellularReturnTypeComboBox"/>
          </item>
          <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+          <widget class="QDoubleSpinBox" name="cellularJitterInput">
+           <property name="singleStep">
+            <double>0.050000000000000</double>
+           </property>
+           <property name="value">
+            <double>1.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -407,102 +440,21 @@
          <property name="verticalSpacing">
           <number>0</number>
          </property>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="comboBox_6"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_25">
-           <property name="text">
-            <string>Distance Function:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="0">
-          <widget class="QLabel" name="label_26">
-           <property name="text">
-            <string>Return Type:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
           <widget class="QLabel" name="label_21">
            <property name="text">
-            <string>Jitter:</string>
+            <string>Amp:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QComboBox" name="comboBox_7"/>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="domainWarpTypeComboBox"/>
          </item>
-         <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_6">
-        <property name="title">
-         <string>Domain Warp Fractal:</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_8">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="verticalSpacing">
-          <number>0</number>
-         </property>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_29">
-           <property name="text">
-            <string>Lacunarity:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
-          <widget class="QLabel" name="label_30">
-           <property name="text">
-            <string>Weighted Strength:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_31">
-           <property name="text">
-            <string>Gain:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_32">
-           <property name="text">
-            <string>Octaves:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_33">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_28">
            <property name="text">
             <string>Type:</string>
            </property>
@@ -511,33 +463,18 @@
            </property>
           </widget>
          </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="label_34">
-           <property name="text">
-            <string>Ping Pong Strength:</string>
+         <item row="3" column="1">
+          <widget class="QDoubleSpinBox" name="domainWarpAmpInput">
+           <property name="minimum">
+            <double>-100000000.000000000000000</double>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <property name="maximum">
+            <double>100000000.000000000000000</double>
+           </property>
+           <property name="value">
+            <double>1.000000000000000</double>
            </property>
           </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QSpinBox" name="spinBox_5"/>
-         </item>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="comboBox_10"/>
-         </item>
-         <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
-         </item>
-         <item row="6" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
-         </item>
-         <item row="7" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_11"/>
-         </item>
-         <item row="8" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_12"/>
          </item>
         </layout>
        </widget>
@@ -555,10 +492,28 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="saveButton">
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="githubButton">
+          <property name="text">
+           <string>Github</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
     <item>
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="rightWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
         <horstretch>0</horstretch>

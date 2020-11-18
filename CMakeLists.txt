@@ -21,7 +21,9 @@ add_executable(
     MainWindow.cpp
     MainWindow.h
     MainWindow.ui
-    NoiseCanvasWidget.cpp NoiseCanvasWidget.h)
+    NoiseCanvasWidget.cpp
+    NoiseCanvasWidget.h
+)
 
 target_link_libraries(
     FastNoisePreviewAppQt

@@ -8,8 +8,8 @@
 #include <queue>
 
 #include <QImage>
-#include <QWidget>
 #include <QTime>
+#include <QWidget>
 
 #include <FastNoiseLite.h>
 
@@ -30,9 +30,8 @@ public:
     QSize size;
     PreviewDimension dimension;
     float z{};
-    /// delta z for scroll
-    /// \see FastNoiseLite::mFrequency is private
-    float dz{1.f};
+    bool invert{};
+    bool visualiseDomainWarp{};
   };
 
 public:
@@ -43,6 +42,10 @@ public:
   ~NoiseCanvasWidget() override;
 
   void preview(PreviewConfig config);
+  void scrollUp(float n = 0.2f/*go n*T*/);
+  void scrollDown(float n = 0.2f/*go n*T*/);
+
+  const QImage &getCurrentImage() const;
   int getTime4Create() const;
   float getMean() const;
   float getMax() const;
@@ -51,7 +54,8 @@ public:
   Q_SLOT void setScroll(bool);
 
 protected:
-  Q_SLOT void on_CreateQueue_NewNoiseImageCreated(const NoiseCanvasWidget_CreateQueue_CreateResult&);
+  Q_SLOT void on_CreateQueue_NewNoiseImageCreated(const NoiseCanvasWidget_CreateQueue_CreateResult &);
+
 private:
   // void customEvent(QEvent *event) override;
   void paintEvent(QPaintEvent *event) override;
@@ -76,15 +80,19 @@ struct NoiseCanvasWidget_CreateQueue_CreateResult {
 class NoiseCanvasWidget_CreateQueue : public QObject {
   Q_OBJECT
 public:
-
   NoiseCanvasWidget_CreateQueue();
   Q_SIGNAL void newNoiseImageCreated(NoiseCanvasWidget_CreateQueue_CreateResult);
+
 private:
   struct QueueItem {};
 
 private:
   void customEvent(QEvent *event) override;
   void create();
+  void createNoiseImage();
+  void createDomainWarpImage();
+  void createImage(const QSize &size, const std::vector<std::vector<QVector3D>> &noiseMat, float mean, float max, float min, int time);
+
   std::queue<NoiseCanvasWidget::PreviewConfig> _queue;
 };
 

@@ -21,16 +21,17 @@ public:
   explicit MainWindow(QWidget *parent = nullptr);
 
 protected:
-  Q_SLOT void on_GenerateButton_Clicked();
   Q_SLOT void on_NoiseCanvas_PreviewChanged();
+  Q_SLOT void on_SaveButton_Clicked();
+  Q_SLOT void on_GithubButton_Clicked();
 
 private:
   using Ui = ::Ui::MainWindow;
 
 private:
-  void generate();
+  void callPreview();
 
-  Ui *ui;
+  Ui *ui{};
 };
 
 #endif // FASTNOISEPREVIEWAPPQT_4B315A382DD5403C810DE64B3440580A_H_
