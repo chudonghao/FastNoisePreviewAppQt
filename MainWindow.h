@@ -21,9 +21,9 @@ public:
   explicit MainWindow(QWidget *parent = nullptr);
 
 protected:
-  Q_SLOT void on_NoiseCanvas_PreviewChanged();
-  Q_SLOT void on_SaveButton_Clicked();
-  Q_SLOT void on_GithubButton_Clicked();
+  void on_NoiseCanvas_PreviewChanged();
+  void on_SaveButton_Clicked();
+  void on_GithubButton_Clicked();
 
 private:
   using Ui = ::Ui::MainWindow;
